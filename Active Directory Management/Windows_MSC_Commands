@@ -1,4 +1,4 @@
-1. **Services**: `services.msc`
+### Services `services.msc`
    - Opens the Services console, where you can start, stop, and configure Windows services.
 
 2. **Event Viewer**: `eventvwr.msc`
