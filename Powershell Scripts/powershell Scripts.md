@@ -75,3 +75,23 @@ This PowerShell script is designed to enhance the performance of your Windows co
     Removes unnecessary startup items from the user's registry, keeping essential programs like Windows Defender and OneDrive.
     Optimizes Windows visual effects settings for smoother performance (optional).
     Offers an option to restart the computer to apply changes (optional).
+------------
+## Top CPU and RAM Usage Monitor Script
+```powershell
+# Get the top N processes consuming CPU and RAM
+$TopN = 10  # You can change this number to get more or fewer processes
+
+# Get top CPU-consuming processes
+$TopCPU = Get-Process | Sort-Object -Property CPU -Descending | Select-Object -First $TopN
+
+# Get top RAM-consuming processes
+$TopRAM = Get-Process | Sort-Object -Property WorkingSet -Descending | Select-Object -First $TopN
+
+# Display top CPU-consuming processes
+Write-Host "Top $TopN CPU-Consuming Processes:"
+$TopCPU | Format-Table -Property Name, CPU -AutoSize
+
+# Display top RAM-consuming processes
+Write-Host "`nTop $TopN RAM-Consuming Processes:"
+$TopRAM | Format-Table -Property Name, WorkingSet -AutoSize
+```
