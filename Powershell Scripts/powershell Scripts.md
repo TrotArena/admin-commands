@@ -27,7 +27,7 @@ if (Test-Path -Path $TempPath -PathType Container) {
     }
 }
 ```
-
+--------------------
 ## Performance Optimization and Cleanup Script
 ```powershell
 # Disable Windows Search service
