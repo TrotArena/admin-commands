@@ -6,21 +6,24 @@ $TempPath = [System.IO.Path]::GetTempPath()
 # Check if the Temp folder exists
 if (Test-Path -Path $TempPath -PathType Container) {
     try {
-        # Delete files in the Temp folder, excluding those currently in use.
-        Get-ChildItem -Path $TempPath | ForEach-Object {
+        # Get a list of files to be deleted (excluding those currently in use)
+        $FilesToDelete = Get-ChildItem -Path $TempPath -File | Where-Object { !$_.IsReadOnly }
+
+        # Delete files in the Temp folder
+        foreach ($File in $FilesToDelete) {
             try {
-                Remove-Item -Path $_.FullName -Force -ErrorAction Stop
+                Remove-Item -Path $File.FullName -Force -ErrorAction Stop
             } catch {
-                Write-Host "Skipped: $($_.FullName) - $($_.Exception.Message)"
+                # If an error occurs (e.g., file in use), silently skip the file
+                continue
             }
         }
 
-        Write-Host "Cleanup completed for $($env:USERNAME)."
+        # Optionally, you can display a message indicating cleanup completion
+        # Write-Host "Cleanup completed for $($env:USERNAME)."
 
     } catch {
-        Write-Host "Failed to clean the Temp folder: $($_.Exception.Message)"
+        # Silently handle any unexpected errors
     }
-} else {
-    Write-Host "Temp folder not found for $($env:USERNAME)."
 }
 ```
