@@ -39,6 +39,10 @@ taskmgr
 ```
 compmgmt.msc
 ```
+### Open Windows Services
+```
+services.msc
+```
 ### Command Prompt as Administrator
 ```
 runas /user:Administrator cmd
