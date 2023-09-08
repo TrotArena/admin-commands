@@ -1,6 +1,9 @@
 # System Administration Tools
 
-## Services ```services.msc```
+## Services 
+```
+services.msc
+```
 - Opens the Services console, where you can start, stop, and configure Windows services.
 
 ## Event Viewer `eventvwr.msc`
