@@ -1,4 +1,4 @@
-### Clean User's Temporary Files
+## Clean User's Temporary Files
 ```powershell
 # Clean the user's Temp folder
 $TempPath = [System.IO.Path]::GetTempPath()
@@ -28,7 +28,7 @@ if (Test-Path -Path $TempPath -PathType Container) {
 }
 ```
 
-### Performance Optimization and Cleanup Script
+## Performance Optimization and Cleanup Script
 ```powershell
 # Disable Windows Search service
 Set-Service -Name "wsearch" -StartupType Disabled
@@ -65,7 +65,7 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name UserPreferencesMask -
 # Restart the computer to apply changes (optional)
 # Restart-Computer -Force
 ```
-# Description:
+### Description - Performance Optimization and Cleanup Script:
 This PowerShell script is designed to enhance the performance of your Windows computer by disabling resource-intensive services, clearing temporary files, and optimizing startup programs. It provides the following functionalities:
 
     Disables the Windows Search service to reduce background indexing.
