@@ -65,7 +65,7 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name UserPreferencesMask -
 # Restart the computer to apply changes (optional)
 # Restart-Computer -Force
 ```
-### Description - Performance Optimization and Cleanup Script:
+### Description (Performance Optimization and Cleanup Script:)
 This PowerShell script is designed to enhance the performance of your Windows computer by disabling resource-intensive services, clearing temporary files, and optimizing startup programs. It provides the following functionalities:
 
     Disables the Windows Search service to reduce background indexing.
